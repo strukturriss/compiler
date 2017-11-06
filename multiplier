@@ -1,7 +1,6 @@
 This is the JS-based simulator for the 'multiplier' part of the compiler's multiplication engine, for testing:
 
 function multiplier(a,b) {
-var multiplicand = [];
 var multiplicator = [];
 for (i=1;i<=a;i++) {
 for (j=1;j<=b;j++) {
