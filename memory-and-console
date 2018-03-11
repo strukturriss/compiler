@@ -39,8 +39,8 @@ return output;
 var inputArray=input.split("");
 var output=[];
 for (x=0;x<inputArray.length;x++){
-if (inputArray[x].indexOf(alphanumeric) !== -1) {
-output.push(memory[inputArray[x].indexOf(alphanumeric)+162])
+if (alphanumeric.indexOf(inputArray[x]) !== -1) {
+output.push(memory[alphanumeric.indexOf(inputArray[x])+162])
 } else {
 output.push(inputArray[x]+" is not defined.");
 }
