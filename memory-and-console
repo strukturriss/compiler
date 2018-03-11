@@ -1,4 +1,4 @@
-function simusense() {
+function simusense(input) {
 //defining Simusense's memory
 var memory = [];
 for (i=0; i<256; i++) {
@@ -6,12 +6,12 @@ memory.push([]);
 }
 //initializing each slot as an 8-bit memory
 for (j=0; j<memory.length; j++) {
-memory[j].push("00000000");
+memory[j].push(new Number(k).toString(2));
 }
 //defining Simusense's character set (ASCII and corresponding binary value)
 var alphanumeric = [];
 for (k=32;k<127;k++) {
-alphanumeric.push([String.fromCharCode(k),new Number(String.fromCharCode(k).charCodeAt()).toString(2)]);
+alphanumeric.push([String.fromCharCode(k),new Number(k).toString(2)]);
 }
 //pushing the character set into Simusense's memory
 for (l=162;l<256;l++) {
@@ -41,5 +41,4 @@ output.push(memory[m]);
 return output;
 }
 //Wake up, Simusense!
-simusense();
-
+simusense(abcxyz123789);
