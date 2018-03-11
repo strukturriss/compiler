@@ -20,13 +20,13 @@ for (l=162;l<256;l++) {
 memory[l].push(alphanumericValues[l-162][1]);
 memory[l].shift();
 //left-filling with zeroes (this part doesn't work yet)
-memory[l][0].split("");
+/*memory[l][0].split("");
 if(memory[l][0].length < 8){
 for (n=0;n<(8-memory[l][0].length);n++) {
 memory[l].unshift("0");
 }
 }
-memory[l].join("");
+memory[l].join("");*/
 }
 //total test dump
 /*var output=[];
