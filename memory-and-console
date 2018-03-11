@@ -6,16 +6,18 @@ memory.push([]);
 }
 //initializing each slot as an 8-bit memory
 for (j=0; j<memory.length; j++) {
-memory[j].push(new Number(k).toString(2));
+memory[j].push(new Number(0).toString(2));
 }
 //defining Simusense's character set (ASCII and corresponding binary value)
 var alphanumeric = [];
+var alphanumericValues = [];
 for (k=32;k<127;k++) {
-alphanumeric.push([String.fromCharCode(k),new Number(k).toString(2)]);
+alphanumeric.push(String.fromCharCode(k));
+alphanumericValues.push(new Number(k).toString(2));
 }
 //pushing the character set into Simusense's memory
 for (l=162;l<256;l++) {
-memory[l].push(alphanumeric[l-162][1]);
+memory[l].push(alphanumericValues[l-162][1]);
 memory[l].shift();
 //left-filling with zeroes (this part doesn't work yet)
 memory[l][0].split("");
@@ -33,12 +35,16 @@ output.push(memory[m][0]);
 }
 return output;
 }*/
-//console test dump
-var output=[];
-for (m=161;m<163;m++) {
-output.push(memory[m]);
+//console output
+var output=input.split("");
+for (x=0;x<output.length;x++){
+if (output[x].indexOf(alphanumeric) !== -1) {
+output.push(memory[output[x].indexOf(alphanumeric)+162])
+} else {
+output.push(output[x]+" is not defined.");
+}
 }
 return output;
 }
 //Wake up, Simusense!
-simusense(abcxyz123789);
+simusense("abcxyz123789");
