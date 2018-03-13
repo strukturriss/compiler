@@ -1,0 +1,23 @@
+function arrayBuilder (input,start,end) {
+//calling the stack
+var tempMemory=[];
+//converting input into Simusense's character sets
+for (i=0;i<input.length;i++){
+if(alphanumeric.indexOf(input[i]) !== -1) {
+tempMemory.push(memory[alphanumeric.indexOf(input[i])]);
+} else {
+tempMemory.push(undefined);
+}
+}
+//transfer to main memory
+var length = end-start;
+if (length !== input.length) {
+return "Please ensure your allocated memory space is equal to the length of your input.";
+} else {
+for (j=start;j<end;j++){
+memory[j].push(tempMemory[(j+1)-j]);
+}
+}
+}
+
+arrayBuilder("Test");
