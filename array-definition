@@ -1,3 +1,6 @@
+/*for the array creator, make sure retrieving an array retrieves it from memory storage
+- i.e. it gets called & then retrieves from point A to point B without the user doing anything about it*/
+
 function arrayBuilder (input,start,end) {
 //calling the stack
 var tempMemory=[];
