@@ -1,0 +1,15 @@
+//the actual interface
+<input type='dropdown' id='input'>
+var operation = document.getElementsByID('input').value;
+switch (operation) {
+  case 'store':
+    storageInput.fadeIn(0);
+    storage();
+    break;
+  case 'retrieveFromMemory':
+    break;
+  case 'retrieveFromInput':
+    break;
+  case 'etc':
+    break;
+}
