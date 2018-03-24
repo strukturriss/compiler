@@ -1,0 +1,43 @@
+function storage() {
+  //the input field returns 'content' (required), 'start' (optional) and 'stop' (optional)
+  if (start !== undefined && stop !== undefined) {
+    for (n=0;n<memory.length;n++) {
+      if (memory[n][0] == '00000000') {
+        for (m=n;m<(n+content.length);m++) {
+          if (memory[m][0] !== '00000000') {
+            console.log('There isn\'t enough space to store this: error in '+memory[m]);
+          } else {
+//          if (input.typeOf == 'integer') {
+              if (content < 255) {
+                memory[m].unshift(content.toString(2));
+                memory[m][1].pop();
+              } else {
+                console.log('This integer is too large! You can only store integers up to 255.')
+              }
+//          } else if (input.typeOf == 'floatingpoint') {
+              if (content < 255) {
+                memory[m].unshift(content.toString(2)); //modify this to store the integer part of the flop number
+                memory[m][1].pop();
+                memory[m+1].unshift(content.toString(2)); //modify this to store the 10tothepowerof part
+                memory[m+1][1].pop();
+              } else {
+                console.log('This number is too large! The numerical part of your number can only go up to 255.')
+              }
+//          } else if (input.typeOf == 'string') {
+//            iterate through the string's letters/number to store them
+            }
+          }
+        }
+      }
+    }
+  } else {
+    if (content.length !== stop-start) {
+      console.log("The length of your input is different from the specified memory space.");
+    } else {
+      contentArray = content.split("");
+      for (k=start;k<stop;k++) {
+        memory[k].push(contentArray[k-(k-1)].toString(2));
+      }
+    }
+  }
+}
