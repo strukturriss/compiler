@@ -1,0 +1,48 @@
+  function parseInit(input){
+    if (input.indexOf(/\(d{4}?=\s\d{2,3}\s\d{0,3}/gi) !== -1){
+      var arr=input.split(" ");
+      switch (arr[0]) {
+        case 1019:
+          //MOVE x to y
+          if (arr[1] > 0 && arr[1] < 256) {
+            if (arr[2] > 0 && arr[2] < 256) {
+              memory[arr[2]].push(memory[arr[1]]);
+              memory[arr[2]].unshift;
+              return memory[arr[2]];
+            } else {
+              console.log('Error! Second value must be between 1 and 255.')
+            }
+          } else {
+            console.log('Error! First value must be between 1 and 255.')
+          }
+          break;
+        case 1020:
+          //RETRIEVE x
+          if (arr[1] > 0 && arr[1] < 256) {
+            console.log('Memory cell no '+arr[1]+' contains '+memory[arr[1]]);
+          } else {
+            console.log('Error! The value entered is outside of memory range.')
+          }
+          break;
+        case 1021:
+          //RETRIEVE x thru y
+          if (arr[1] > 0 && arr[1] < 256) {
+            if (arr[2] > 0 && arr[2] < 256) {
+              var dump = [];
+              for (i=arr[1];i<arr[2];i++){
+                dump.push(memory[i]);
+              }
+              console.log('Memory cells '+arr[1]+' through '+arr[2]+' contain '+dump.toString());
+            } else {
+              console.log('Error! Second value must be between 1 and 255.')
+            }
+          } else {
+            console.log('Error! First value must be between 1 and 255.')
+          }
+          break;
+        default:
+          console.log('You seem to have entered an incorrect value? Remember Simusense only accepts orders in the format XXXX XXX XXX.')
+          break;
+      }
+    }
+  }
