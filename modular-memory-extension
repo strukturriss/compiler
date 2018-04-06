@@ -1,0 +1,7 @@
+  function memMod(moduleSize){
+    const genSize = memory.length;
+    for (i=0;i<moduleSize;i++){
+      memory.push([00000000]);      
+    }
+    var newSize = memory.length;
+  }
