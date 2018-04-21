@@ -40,6 +40,14 @@
             console.log('Error! First value must be between 1 and 255.')
           }
           break;
+        case 1022:
+          //Increment x by 1
+          if (arr[1] > 0 && arr[1] < 256) {
+              memory[arr[1]] += 1;
+            } else {
+              console.log('Error! Memory value must be between 1 and 255.')
+            }
+          break;
         default:
           console.log('You seem to have entered an incorrect value? Remember Simusense only accepts orders in the format XXXX XXX XXX.')
           break;
