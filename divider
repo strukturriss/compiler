@@ -1,0 +1,29 @@
+function divide (dividend,divisor){
+
+//setting up the counter
+//find a free memory spot and mark it with an increment
+for (i=0;i<memory.length;i++){
+if (memory[i] == '00000000'){
+//see https://github.com/strukturriss/compiler/blob/master/parser for the increment's definition
+if (i.length<3){parseInit('1022 0'+i+' 00');
+} else {parseInit('1022 '+i+' 00');}
+} else if (i == memory.length){
+console.log('Your memory space is full! Please empty at least one cell.');
+};
+
+//storing dividend and divisor
+storage(dividend);
+storage(divisor);
+
+//the actual engine
+var result = [];
+for (j=dividend;j<0;j--){
+result.push(j);
+dividend = subtract(dividend,divisor);
+}
+
+//output: result and remainder
+console.log([result.length-1,result[result.length]);
+}
+}
+}
