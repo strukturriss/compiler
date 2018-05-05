@@ -1,5 +1,5 @@
-function storage() {
-  //the input field returns 'content' (required), 'start' (optional) and 'stop' (optional)
+function storage(content,start,stop) {
+  //in the final version, the input field returns 'content' (required), 'start' (optional) and 'stop' (optional)
   if (start !== undefined && stop !== undefined) {
     for (n=0;n<memory.length;n++) {
       if (memory[n][0] == '00000000') {
