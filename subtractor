@@ -1,3 +1,5 @@
+//this doesn't use Simusense's own parsing capacities yet
+
 function subtract (num1, num2) {
 var result = [];
 //making sure we subtract the smaller from the larger number
