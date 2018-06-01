@@ -15,7 +15,7 @@ console.log('Your memory space is full! Please empty at least one cell.');
 storage(dividend);
 storage(divisor);
 
-//the actual engine
+//the actual engine - starting here, it doesn't use Simusense's own parsing yet
 var result = [];
 for (j=dividend;j<0;j--){
 result.push(j);
