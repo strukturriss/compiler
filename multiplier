@@ -1,4 +1,4 @@
-This is the JS-based simulator for the 'multiplier' part of the compiler's multiplication engine, for testing:
+//This doesn't use Simusense's own parsing capacities yet
 
 function multiplier(a,b) {
 var multiplicator = [];
@@ -13,5 +13,3 @@ return c+=d;
 }
 
 multiplier(23,95)
-
-The blueprint there is on p. 9 of the notebook: this one uses nothing but WRITE, INCREMENT, IF...THEN...ELSE, and GOTO.
