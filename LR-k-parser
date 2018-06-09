@@ -1,0 +1,38 @@
+function lrkparser(input){
+  var inputArr = input.split("");
+  var resultArr = [];
+  var subArr = [];
+  inputArr.forEach(function(item){
+    switch (item){
+      case "(":
+        resultArr.push("1");
+        //this section sets up the forward-looking parser...
+        subArr.push(input.slice(inputArr.indexOf("(")+1,inputArr.indexOf(")")))
+        //...and executes it
+        parser(subArr.join(""));
+        break;
+      case ")":
+        resultArr.push("1");
+      case "^":
+        resultArr.push("2");
+        break;
+      case "*":
+      case "/":
+        resultArr.push("3");
+        break;
+      case "-":
+      case "+":
+        resultArr.push("4");
+        break;
+//    case [numeral]:
+//      resultArr.push("num");
+//      break;
+      default:
+        resultArr.push("let");
+        break;
+      }
+    });
+  console.log(resultArr,subArr);
+}
+
+lrkparser("123*8+(67^a-5)");
