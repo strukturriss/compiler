@@ -56,6 +56,19 @@
           var place2 = (dump[4]+dump[5]).toString(10);
           parseInit(progNum+" "+place1+" "+place2);
           break;
+        case 1024:
+          //adder
+          //extending memory by eight byte
+          memMod(8);
+          //storing factor 1 in the last field of the extended memory
+          storage(arr[1].toString(2),memory[newSize]);
+          //setting up the counter
+          parseInit("1022 "+(newSize-1)+" 000");
+          do {
+            parseInit("1022 "+(newSize)+" 000");
+            parseInit("1022 "+(newSize-1)+" 000");
+          } while ((newSize-1).toString(10) < arr[2]);
+          break;
         default:
           console.log('You seem to have entered an incorrect value? Remember Simusense only accepts orders in the format XXXX XXX XXX.')
           break;
