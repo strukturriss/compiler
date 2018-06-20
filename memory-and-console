@@ -1,37 +1,40 @@
 function simusense(input) {
+
 //defining Simusense's memory
-var memory = [];
-for (i=0; i<256; i++) {
-memory.push([]);
-}
+  let memory = [];
+  do {memory.push([]);} while (memory.length<256)
+
 //initializing each slot as an 8-bit memory
-for (j=0; j<memory.length; j++) {
-memory[j].push(new Number(0).toString(2));
-}
+  for (j=0; j<memory.length; j++) {
+    memory[j].push(new Number(0).toString(2));
+  }
+
 //defining Simusense's character set (ASCII and corresponding binary value)
 var alphanumeric = [];
 var alphanumericValues = [];
 for (k=32;k<127;k++) {
-alphanumeric.push(String.fromCharCode(k));
-alphanumericValues.push(new Number(k).toString(2));
+  alphanumeric.push(String.fromCharCode(k));
+  alphanumericValues.push(new Number(k).toString(2));
 }
+
 //pushing the character set into Simusense's memory
 for (l=162;l<256;l++) {
-memory[l].push(alphanumericValues[l-162][1]);
-memory[l].shift();
+  memory[l].push(alphanumericValues[l-162][1]);
+  memory[l].shift();
 //left-filling with zeroes (this part doesn't work yet)
-/*memory[l][0].split("");
-if(memory[l][0].length < 8){
-for (n=0;n<(8-memory[l][0].length);n++) {
-memory[l].unshift("0");
+  /*memory[l][0].split("");
+  if(memory[l][0].length < 8){
+    for (n=0;n<(8-memory[l][0].length);n++) {
+      memory[l].unshift("0");
+    }
+  }
+  memory[l].join("");*/
 }
-}
-memory[l].join("");*/
-}
+
 //total test dump
 /*var output=[];
 for (m=0;m<memory.length;m++) {
-output.push(memory[m][0]);
+  output.push(memory[m][0]);
 }
 return output;
 }*/
@@ -39,13 +42,14 @@ return output;
 var inputArray=input.split("");
 var output=[];
 for (x=0;x<inputArray.length;x++){
-if (alphanumeric.indexOf(inputArray[x]) !== -1) {
-output.push(memory[alphanumeric.indexOf(inputArray[x])+162])
-} else {
-output.push(inputArray[x]+" is not defined.");
-}
+  if (alphanumeric.indexOf(inputArray[x]) !== -1) {
+    output.push(memory[alphanumeric.indexOf(inputArray[x])+162])
+  } else {
+    output.push(inputArray[x]+" is not defined.");
+  }
 }
 return output;
 }
+
 //Wake up, Simusense!
 simusense("abcxyz123789");
