@@ -5,13 +5,13 @@ function arrayBuilder (input,start,end) {
 //calling the stack
 var tempMemory=[];
 //converting input into Simusense's character sets
-for (i=0;i<input.length;i++){
+do {
 if(alphanumeric.indexOf(input[i]) !== -1) {
 tempMemory.push(memory[alphanumeric.indexOf(input[i])]);
 } else {
 tempMemory.push(undefined);
 }
-}
+} while (i<input.length);
 //transfer to main memory
 var length = end-start;
 if (length !== input.length) {
