@@ -2,7 +2,7 @@ function lrkparser(input){
   var inputArr = input.split("");
   var resultArr = [];
   var subArr = [];
-  inputArr.forEach(function(item){
+  inputArr.forEach((item) => {
     switch (item){
       case "(":
         resultArr.push("1");
